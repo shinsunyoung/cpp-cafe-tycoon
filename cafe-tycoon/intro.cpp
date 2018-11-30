@@ -505,9 +505,9 @@ void intro() {
 	cout << "                                                                            " << endl;
 	cout << "                 <설명서>                                                   " << endl;
 	cout << "                                                                            " << endl;
-	cout << "                 1. 조작은 키보드로만 가능합니다                            " << endl;
-	cout << "                 2. 5분은 '일주일'로 계산됩니다                             " << endl;
-	cout << "                 3. 누구보다 멋진 카페로 만들어주세요!                      " << endl;
+	cout << "         1. 조작은 키보드로만 가능합니다                            " << endl;
+	cout << "         2. 메뉴 업그레이드는 분기당 한 번만 가능하며 횟수당 10000원입니다.                            " << endl;
+	cout << "         3. 직원고용은 횟수당 30000원입니다.                      " << endl;
 	cout << "                                                                            " << endl;
 	cout << "                                                                            " << endl;
 	cout << "                 ...                                                        " << endl;
