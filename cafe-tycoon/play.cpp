@@ -46,6 +46,20 @@ int money_length() {
 	return cout_length - num_len;
 }
 
+int month_see_length() {
+	int i = 1, num_len = 1;
+
+	while (month_see >= i) {
+		i *= 10;
+		num_len++;
+	}
+
+	if (month_see == 0) num_len++;
+	if (month_see == 10) num_len--;
+
+	return num_len;
+}
+
 int rank_im_length() {
 	int i = 1, num_len = 1;
 
@@ -88,7 +102,7 @@ int all_sell_length(int price) {
 }
 
 void ending() {
-	rank_im = 1000 - (money / 120);
+	rank_im = 1000 - (money / 180);
 	if (rank_im < 1) rank_im = 1;
 
 	system("cls");
@@ -99,8 +113,8 @@ void ending() {
 	cout << "                                                                            " << endl;
 	cout << "                                                                            " << endl;
 	cout << "                                                                            " << endl;
-	cout << "              최종 랭크" << rank_im << " 위                                 " << endl;
-	cout << "              최종 자본" << money << "원                                    " << endl;
+	cout << "              최종 랭크 " << rank_im << " 위                                 " << endl;
+	cout << "              최종 자본 " << money << " 원                                    " << endl;
 	cout << "                                                                            " << endl;
 	cout << "                                                                            " << endl;
 	cout << "                                                                            " << endl;
@@ -521,12 +535,12 @@ void sell_result() {
 	cout << "■                                                                        ■" << endl;
 	cout << "■                                                                        ■" << endl;
 	cout << "■                                                                        ■" << endl;
-	cout << "■                            @ 오늘의 수익 @                             ■" << endl;
+	cout << "■                          @ 이번 분기의 수익 @                          ■" << endl;
 	cout << "■                                                                        ■" << endl;
 	cout << "■                                                                        ■" << endl;
 	cout << "■                       온 손님의 수 : " << customer_num << " 명"; cout.width(34 - customer_num_length(customer_num)); cout.fill(' '); cout << "■" << endl;
 	cout << "■                                                                        ■" << endl;
-	cout << "■                       오늘의 메뉴 가격 : " << today_menu_price << "                          ■" << endl;
+	cout << "■                       분기의 메뉴 가격 : " << today_menu_price << "                          ■" << endl;
 	cout << "■                                                                        ■" << endl;
 	cout << "■                       총 수익 :  " << sell_result; cout.width(40 - all_sell_length(sell_result)); cout.fill(' '); cout << "■" << endl;
 	cout << "■                                                                        ■" << endl;
@@ -743,7 +757,7 @@ void event_2() {
 		i++;
 	}
 
-
+	money += 20000;
 }
 
 void sell_day() {
@@ -929,13 +943,13 @@ void play() { // 중간 제출 용으로 한 판의 분량만 만듦!
 	while (true) {
 		system("cls");
 
-		rank_im = 1000 - (money / 120);
+		rank_im = 1000 - (money / 180);
 
 		if (rank_im < 1) rank_im = 1;
 
 		cout << "■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■" << endl;
 		cout << "■                                                                        ■" << endl;
-		cout << "■"; cout.width(62); cout.fill(' ');  cout << " 경영 시작 "; YELLOW cout << month_see << " 개월 "; ORIGINAL cout << "째 ■" << endl;
+		cout << "■"; cout.width(60); cout.fill(' ');  cout << " 경영 시작 "; YELLOW cout.width(5 - month_see_length()); cout.fill(' '); cout << month_see << "개월 째!"; ORIGINAL cout << " ■" << endl;
 		cout << "■ "; SKY_BLUE cout << "카페 [ "; YELLOW cout << cafe_name; SKY_BLUE cout << " ]"; cout.width(64 - cafe_name.length()); cout.fill(' '); ORIGINAL  cout << "■" << endl;
 		cout << "■                                                                        ■" << endl;
 		cout << "■ "; SKY_BLUE cout << "점장 [ "; YELLOW cout << user_name; SKY_BLUE cout << " ]"; cout.width(64 - user_name.length()); cout.fill(' '); ORIGINAL  cout << "■" << endl;
@@ -1037,5 +1051,4 @@ void play() { // 중간 제출 용으로 한 판의 분량만 만듦!
 
 		}
 	}
-
 }
